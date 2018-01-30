@@ -15,14 +15,15 @@ class Block{
 	calculateHash(){
 		return SHA256(this.index + this.transaction + this.previousHash);
 	}
-
+/*
 	constructor(string){
 		this.string = string;
 	}
-
+*/
 }
 
 class Transaction{
+	
 /*
 	constructor(seller, buyer, price, amount){
 		this.seller = seller;
