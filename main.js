@@ -7,7 +7,7 @@ class Block{
 		this.transaction = transaction;
 		this.otherProperties = otherProperties;
 		this.previousHash = previousHash;
-		this.hash = '';
+		this.hash = this.calculateHash();
 
 		this.none = '';
 	}
@@ -16,14 +16,11 @@ class Block{
 		return SHA256(this.index + this.transaction + this.previousHash);
 	}
 
-	constructor(string){
-		this.string = string;
-	}
-
 }
 
 class Transaction{
 
+/*
 	constructor(seller, buyer, price, amount){
 		this.seller = seller;
 		this.buyer = buyer;
@@ -31,13 +28,13 @@ class Transaction{
 		this.amount = amount;
 
 	}
-
+*/
 	constructor(someDataString){
 		this.someDataString = someDataString;
 	}
 
 	toString(){
-		return someDataString;
+		return this.someDataString;
 	}
 }
 
@@ -52,7 +49,7 @@ class BlochChain{
 	}
 
 	genesisBlock(){
-		return new Block(0, new Transaction("Uco manda 10 bits a Klei"), ''. '0');
+		return new Block(0, new Transaction("Uco manda 10 bits a Klei"), '', '0');
 	}
 
 	addBlock(newBlock){
