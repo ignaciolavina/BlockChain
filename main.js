@@ -61,5 +61,5 @@ class BlochChain{
 }
 
 let prueba = new BlochChain();
-prueba.addBlock(new Block("hbloque prueba"));
+prueba.addBlock(new Block(1,"bloque prueba","sin propiedades",this.getLatestBlock.hash));
 console.log(JSON.stringify(prueba, null, 4));
