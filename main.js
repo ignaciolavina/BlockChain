@@ -9,11 +9,19 @@ class Block{
 
 //		this.transaction = transaction;
 //		this.otherProperties = otherProperties;
-		this.none = '';
+		this.nonce = 0;
 	}
 
 	calculateHash(){
-		return SHA256(this.index + this.previousHash + JSON.stringify(this.data)).toString();
+		return SHA256(this.index + this.previousHash + JSON.stringify(this.data) + this.nonce).toString();
+	}
+
+	mineBlock(miningDificulty){
+		//Proof of work
+		while(this.hash.substring(0, miningDificulty) != Array(miningDificulty +1).join("0")){
+			this.nonce++;
+			this.hash = this.calculateHash();
+		}
 	}
 
 }
@@ -24,6 +32,7 @@ class BlochChain{
 	
 	constructor(){
 		this.chain = [this.genesisBlock()];
+		this.miningDificulty = 5;
 	}
 
 	getLatestBlock(){
@@ -37,7 +46,8 @@ class BlochChain{
 
 	addBlock(newBlock){
 		newBlock.previousHash = this.getLatestBlock().hash;
-		newBlock.hash = newBlock.calculateHash();
+		newBlock.mineBlock(this.miningDificulty);
+		//newBlock.hash = newBlock.calculateHash();
 		this.chain.push(newBlock);
 
 	}
@@ -52,9 +62,16 @@ class BlochChain{
 
 
 let prueba = new BlochChain();
+console.log("minando el primer bloque");
 prueba.addBlock(new Block(1, {amount: 10}));
+console.log("minando el segundo bloque");
 prueba.addBlock(new Block(2, {amount: 55}));
+console.log("minando el tercer bloque");
+prueba.addBlock(new Block(3, {amount: 55}));
 console.log(JSON.stringify(prueba, null, 4));
+
+
+
 
 
 class Transaction{
