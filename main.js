@@ -33,6 +33,8 @@ class BlochChain{
 	constructor(){
 		this.chain = [this.genesisBlock()];
 		this.miningDificulty = 5;
+
+		this.transactions = [];
 	}
 
 	getLatestBlock(){
@@ -76,18 +78,20 @@ console.log(JSON.stringify(prueba, null, 4));
 
 class Transaction{
 
-/*
-	constructor(seller, buyer, price, amount){
-		this.seller = seller;
-		this.buyer = buyer;
-		this.price = price;
-		this.amount = amount;
 
+	constructor(seller, buyer, price, amount, notes){
+		if((this.seller | this.buyer | this.amount | this.notes) == null){
+			return;
+		}else{
+			this.seller = seller;
+			this.buyer = buyer;
+			this.price = price;
+			this.amount = amount;
+			this.notes = notes;
+		}
 	}
-*/
-	constructor(someDataString){
-		this.someDataString = someDataString;
-	}
+
+
 
 	toString(){
 		return this.someDataString;
