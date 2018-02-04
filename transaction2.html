@@ -11,112 +11,111 @@
 </head>
 <body>
 
-<div class="jumbotron text-center">
-  <h1>Transactions page</h1>
-  <p>Create new transactions for the BlockChain net</p> 
-</div>
+  <div class="jumbotron text-center">
+    <h1>Transactions page</h1>
+    <p>Create new transactions for the BlockChain net</p> 
+  </div>
 
 
-<!--  <form action="/my-handling-form-page" method="post"> -->
+  <!--  <form action="/my-handling-form-page" method="post"> -->
 
 
-<!-- form user info -->
+    <!-- form user info -->
     <div class="card card-outline-secondary">
-        <div class="card-header">
-            <h3 class="mb-0">Transaction Information</h3>
-        </div>
-        <div class="card-block">
-            <form class="form" role="form" autocomplete="off">
+      <h3 class="mb-0">Transaction Information</h3>
+      <br><br>
+      <div class="card-block">
+        <form class="form" role="form" autocomplete="off">
 
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6">
-              <h3>Seller Info</h3>
-              <p>Please, complete all the information of the seller for the transaction</p>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <h3>Seller Info</h3>
+                <p>Please, complete all the information of the seller for the transaction</p>
                 <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Name</label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="text" value="">
-                    </div>
+                  <label class="col-lg-3 col-form-label form-control-label">Name</label>
+                  <div class="col-lg-9">
+                    <input class="form-control" type="text" value="">
+                  </div>
                 </div>
-            </div>
-            <div class="col-sm-6">
-              <h3>Buyer Info</h3>
-              <p>Please, complete all the information of the buyer for the transaction</p>
-                    <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Name</label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="text" value="">
-                    </div>
+              </div>
+              <div class="col-sm-6">
+                <h3>Buyer Info</h3>
+                <p>Please, complete all the information of the buyer for the transaction</p>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Name</label>
+                  <div class="col-lg-9">
+                    <input class="form-control" type="text" value="">
+                  </div>
                 </div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <div class="container">
+
+            <h3>Ohter information</h3>
+            <p>Fill all the information below</p>
+
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Amount ($)</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="value" value="">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Notes</label>
+              <div class="col-lg-9">
+                <input id="Notes" class="form-control" type="text" value="Notes">
+              </div>
             </div>
 
-          </div>
+
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-9">
+                <input type="reset" class="btn btn-secondary" value="Cancel">
+                <input type="button" class="btn btn-primary" value="Create Transaction" onclick="Transaction()">
+              </div>
+            </div>
+          </form>
         </div>
-
-
-
-<div class="container">
-
-      <h3>Ohter information</h3>
-      <p>Fill all the information below</p>
-
-      <div class="form-group row">
-          <label class="col-lg-3 col-form-label form-control-label">Amount ($)</label>
-          <div class="col-lg-9">
-              <input class="form-control" type="value" value="">
-          </div>
       </div>
-      <div class="form-group row">
-          <label class="col-lg-3 col-form-label form-control-label">Notes</label>
-          <div class="col-lg-9">
-              <input id="Notes" class="form-control" type="text" value="Notes">
-          </div>
-      </div>
-
-
-      <div class="form-group row">
-          <label class="col-lg-3 col-form-label form-control-label"></label>
-          <div class="col-lg-9">
-              <input type="reset" class="btn btn-secondary" value="Cancel">
-              <input type="button" class="btn btn-primary" value="Create Transaction" onclick="Transaction()">
-          </div>
-      </div>
-            </form>
-        </div>
+      <!-- /form user info -->
     </div>
-    <!-- /form user info -->
-</div>
 
-<button onclick="myFunction()">Try it</button>
+    <button onclick="myFunction()">Try it</button>
 
     <table id="table" class="table">
       <thead class="thead-dark">
         <tr>
-        <th scope="col">Block ID</th>
-        <th scope="col">Hash</th>
-        <th scope="col">Previous hash</th>
-        <th scope="col">Data</th>
+          <th scope="col">Block ID</th>
+          <th scope="col">Hash</th>
+          <th scope="col">Previous hash</th>
+          <th scope="col">Data</th>
         </tr>
       </thead>
-      </table>
+    </table>
 
 
-  
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-      <h3>Security info</h3>
-      <p>After confirm, all the transactions will be part of the blocChain net, and there are NOT any possibility of future changes.</p>
-      <p>Make transactions responsibly</p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <h3>Security info</h3>
+          <p>After confirm, all the transactions will be part of the blocChain net, and there are NOT any possibility of future changes.</p>
+          <p>Make transactions responsibly</p>
+        </div>
+
+      </div>
     </div>
-
-  </div>
-</div>
 
     <script type="text/javascript">
       function myFunction(){
-var transact = "eqas";
+        var transact = "eqas";
         var transact2 = [document.getElementById("Notes")];
 
         table = document.getElementById("table");
@@ -127,18 +126,18 @@ var transact = "eqas";
           var cell = newRow.insertCell(j);
           cell.innerHTML = transact2;
         }
-    }
+      }
     </script>
 
 
-        <script>
+    <script>
 
       var array = [["1", "genesis hash", "null", "data"],
       ["2", "segundo hash", "genesis hash", "data"],
       ["3", "tercer hash", "segundo hash", "data"]],
 
-            table = document.getElementById("table");
-        
+      table = document.getElementById("table");
+
 
            // Method for fill the table
            
@@ -153,11 +152,11 @@ var transact = "eqas";
                    
                    // add value to the cell
                    cell.innerHTML = array[i][j];
+                 }
                }
-           }
 
-        </script>
+             </script>
 
 
-</body>
-</html>
+           </body>
+           </html>
