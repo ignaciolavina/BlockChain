@@ -35,7 +35,7 @@
                 <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label">Name</label>
                   <div class="col-lg-9">
-                    <input class="form-control" type="text" value="">
+                    <input id="seller_name" class="form-control" type="text" value="">
                   </div>
                 </div>
               </div>
@@ -45,7 +45,7 @@
                 <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label">Name</label>
                   <div class="col-lg-9">
-                    <input class="form-control" type="text" value="">
+                    <input  id="buyer_name" class="form-control" type="text" value="">
                   </div>
                 </div>
               </div>
@@ -63,7 +63,7 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Amount ($)</label>
               <div class="col-lg-9">
-                <input class="form-control" type="value" value="">
+                <input  id="Amount" class="form-control" type="value" value="">
               </div>
             </div>
             <div class="form-group row">
@@ -78,7 +78,7 @@
               <label class="col-lg-3 col-form-label form-control-label"></label>
               <div class="col-lg-9">
                 <input type="reset" class="btn btn-secondary" value="Cancel">
-                <input type="button" class="btn btn-primary" value="Create Transaction" onclick="Transaction()">
+                <input type="button" class="btn btn-primary" value="Create Transaction" onclick="myFunction()">
               </div>
             </div>
           </form>
@@ -87,7 +87,8 @@
       <!-- /form user info -->
     </div>
 
-    <button onclick="myFunction()">Try it</button>
+    <label class="col-lg-3 col-form-label form-control-label">Generate some random transacrions to test</label>
+    <button onclick="generateTransaction()">Generate</button>
 
     <table id="table" class="table">
       <thead class="thead-dark">
@@ -114,9 +115,10 @@
     </div>
 
     <script type="text/javascript">
+
       function myFunction(){
-        var transact = "eqas";
-        var transact2 = [document.getElementById("Notes")];
+        var transact2 = [document.getElementById("seller_name").value, document.getElementById("buyer_name").value,
+                        document.getElementById("Amount").value, document.getElementById("Notes").value];
 
         table = document.getElementById("table");
         table.insertRow(table.length);
@@ -124,39 +126,72 @@
 
         for (var j=0; j < 4; j++){
           var cell = newRow.insertCell(j);
-          cell.innerHTML = transact2;
+          cell.innerHTML = transact2[j];
         }
       }
-    </script>
+
+      function Transaction(){
+
+        var trans = [document.getElementById("seller_name")];
+
+        table = document.getElementById("table");
+        table.insertRow(table.length);
+
+        var newRow = table.insertRow(table.length);
+
+        var cel1 =  newRow.insertCell(0);
+        cell.innerHTML = getElementById("seller_name").value;
+        var cel2 =  newRow.insertCell(1);
+        cel2.innerHTML = "element";
+        var cel3 =  newRow.insertCell(2);
+        cel3.innerHTML = "element";
+        var cel4 =  newRow.insertCell(3);
+        cel4.innerHTML = "element";
+
+      }
+
+      function randomName(list) {
+        var i = Math.floor(Math.random() * list.length);
+        return list[i];
+      }
+
+      function randomNumber(){
+        var k = Math.floor(Math.random() * 500) + 1  
+        return k;
+      }
 
 
-    <script>
+      
+      function generateTransaction(){
 
-      var array = [["1", "genesis hash", "null", "data"],
-      ["2", "segundo hash", "genesis hash", "data"],
-      ["3", "tercer hash", "segundo hash", "data"]],
+      var names_list = ["Mike Wasouski", "Sully", "Uco", "Kai", "Freddy Krueger", "JackSparrow", "Dolores fuertes", "Lola Mento", "Ana Tomía", "Armando Guerra", "Igor Dito", "Aitor Menta", "Elena nito", "Penélope luda"];
 
-      table = document.getElementById("table");
-
-
-           // Method for fill the table
-           
-           for(var i = 0; i < array.length; i++)
-           {
-               // create a new row
-               var newRow = table.insertRow(table.length);
-               for(var j = 0; j < array[i].length; j++)
-               {
-                   // create a new cell
-                   var cell = newRow.insertCell(j);
-                   
-                   // add value to the cell
-                   cell.innerHTML = array[i][j];
-                 }
-               }
-
-             </script>
+      var seller_name = randomName(names_list);
+      var buyer_name = randomName(names_list);
+      var random_nubmer = randomNumber();
 
 
-           </body>
-           </html>
+        var transact2 = [seller_name, buyer_name, random_nubmer, "no notes on this transaction" ];
+
+        table = document.getElementById("table");
+        table.insertRow(table.length);
+        var newRow = table.insertRow(table.length);
+
+        for (var j=0; j < 4; j++){
+          var cell = newRow.insertCell(j);
+          cell.innerHTML = transact2[j];
+        }
+      }
+
+    
+    //Generamos algunas transactiones random por defecto
+    var numnber_of_initial_transactions = 4;
+    for (var i = 0; i < numnber_of_initial_transactions; i++){
+      generateTransaction()
+    }
+
+  </script>
+
+
+</body>
+</html>
