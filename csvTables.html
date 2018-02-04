@@ -20,6 +20,8 @@
         
         <button onclick="myFunction()">Try it</button>
 
+         <button onclick="successFunction()">LoadData</button>
+
 		<table id="table" class="table">
 			<thead class="thead-dark">
 		    <tr>
@@ -30,6 +32,58 @@
 		    </tr>
 			</thead>
 	    </table>
+
+<!-- -->
+<script type="text/javascript">
+  
+  $(document).ready(function(){
+    $('#LoadData').click(function(){
+        $.ajax({
+          url: ',/data/csv_data.csv',
+          dataType: 'text',
+          success:function(data){
+
+              var allRows = data.split(/\r?\n|\r/);
+              var table = '<table>';
+              for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
+                if (singleRow === 0) {
+                  table += '<thead>';
+                  table += '<tr>';
+                } else {
+                  table += '<tr>';
+                }
+                var rowCells = allRows[singleRow].split(',');
+                for (var rowCell = 0; rowCell < rowCells.length; rowCell++) {
+                  if (singleRow === 0) {
+                    table += '<th>';
+                    table += rowCells[rowCell];
+                    table += '</th>';
+                  } else {
+                    table += '<td>';
+                    table += rowCells[rowCell];
+                    table += '</td>';
+                  }
+                }
+                if (singleRow === 0) {
+                  table += '</tr>';
+                  table += '</thead>';
+                  table += '<tbody>';
+                } else {
+                  table += '</tr>';
+                }
+              } 
+              table += '</tbody>';
+              table += '</table>';
+              $('body').append(table);
+
+          }
+    })
+
+  });
+
+</script>
+
+
 
 		<script type="text/javascript">
 			function myFunction(){
@@ -42,7 +96,13 @@
 					var cell = newRow.insertCell(j);
 					cell.innerHTML = "element";
 				}
+
+
+
+
 		}
+
+
 		</script>
 
         

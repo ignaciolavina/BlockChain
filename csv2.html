@@ -1,0 +1,69 @@
+<html class="gr__itidabhoi_org"><head>
+		<title>CSV File to HTML Table Using AJAX jQuery</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body data-gr-c-s-loaded="true">
+		<div class="container">
+			<div class="table-responsive">
+				<br>
+				<h1 align="center"><a href="http://www.webslesson.info/2017/04/csv-file-to-html-table-using-ajax-jquery.html">CSV File to HTML Table Using AJAX jQuery</a></h1>
+				<br>
+				<div class="col-md-3">
+					<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- webslesson_sidebarrightsec_AdSense1_1x1_as -->
+					<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4529508631166774" data-ad-host="ca-host-pub-1556223355139109" data-ad-host-channel="L0001" data-ad-slot="8049812049" data-ad-format="auto"></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
+				<div class="col-md-9" style="min-height:900px;">
+					<div align="center">
+						<button type="button" name="load_data" id="load_data" class="btn btn-info">Load Data</button>
+					</div>
+					<br>
+					<div id="employee_table">
+					</div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+		</div>
+	
+
+
+<script>
+$(document).ready(function(){
+	$('#load_data').click(function(){
+		$.ajax({
+			url:"employee.csv",
+			dataType:"text",
+			success:function(data)
+			{
+				var employee_data = data.split(/\r?\n|\r/);
+				var table_data = '<table class="table table-bordered table-striped">';
+				for(var count = 0; count<employee_data.length; count++)
+				{
+					var cell_data = employee_data[count].split(",");
+					table_data += '<tr>';
+					for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+					{
+						if(count === 0)
+						{
+							table_data += '<th>'+cell_data[cell_count]+'</th>';
+						}
+						else
+						{
+							table_data += '<td>'+cell_data[cell_count]+'</td>';
+						}
+					}
+					table_data += '</tr>';
+				}
+				table_data += '</table>';
+				$('#employee_table').html(table_data);
+			}
+		});
+	});
+	
+});
+</script></body></html>
