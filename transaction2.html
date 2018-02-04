@@ -81,7 +81,7 @@
                 <input type="button" class="btn btn-primary" value="Create Transaction" onclick="myFunction()">
               </div>
             </div>
-          </form>
+          </form> <br>
         </div>
       </div>
       <!-- /form user info -->
@@ -93,10 +93,11 @@
     <table id="table" class="table">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">Block ID</th>
-          <th scope="col">Hash</th>
-          <th scope="col">Previous hash</th>
-          <th scope="col">Data</th>
+          <th scope="col">Transacrion</th>
+          <th scope="col">Seller name</th>
+          <th scope="col">Buyer name</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Notes</th>
         </tr>
       </thead>
     </table>
@@ -116,39 +117,23 @@
 
     <script type="text/javascript">
 
+      var transaction_counter = 1;
+
       function myFunction(){
-        var transact2 = [document.getElementById("seller_name").value, document.getElementById("buyer_name").value,
+        var transact2 = [transaction_counter, document.getElementById("seller_name").value, document.getElementById("buyer_name").value,
                         document.getElementById("Amount").value, document.getElementById("Notes").value];
 
         table = document.getElementById("table");
         table.insertRow(table.length);
         var newRow = table.insertRow(table.length);
 
-        for (var j=0; j < 4; j++){
+        for (var j=0; j < 5; j++){
           var cell = newRow.insertCell(j);
           cell.innerHTML = transact2[j];
         }
+        transaction_counter++;
       }
 
-      function Transaction(){
-
-        var trans = [document.getElementById("seller_name")];
-
-        table = document.getElementById("table");
-        table.insertRow(table.length);
-
-        var newRow = table.insertRow(table.length);
-
-        var cel1 =  newRow.insertCell(0);
-        cell.innerHTML = getElementById("seller_name").value;
-        var cel2 =  newRow.insertCell(1);
-        cel2.innerHTML = "element";
-        var cel3 =  newRow.insertCell(2);
-        cel3.innerHTML = "element";
-        var cel4 =  newRow.insertCell(3);
-        cel4.innerHTML = "element";
-
-      }
 
       function randomName(list) {
         var i = Math.floor(Math.random() * list.length);
@@ -160,27 +145,25 @@
         return k;
       }
 
-
-      
       function generateTransaction(){
 
-      var names_list = ["Mike Wasouski", "Sully", "Uco", "Kai", "Freddy Krueger", "JackSparrow", "Dolores fuertes", "Lola Mento", "Ana Tomía", "Armando Guerra", "Igor Dito", "Aitor Menta", "Elena nito", "Penélope luda"];
+        var names_list = ["Mike Wasouski", "Sully", "Uco", "Kai", "Freddy Krueger", "JackSparrow", "Dolores fuertes", "Lola Mento", "Ana Tomía", "Armando Guerra", "Igor Dito", "Aitor Menta", "Elena nito", "Penélope luda"];
 
-      var seller_name = randomName(names_list);
-      var buyer_name = randomName(names_list);
-      var random_nubmer = randomNumber();
-
-
-        var transact2 = [seller_name, buyer_name, random_nubmer, "no notes on this transaction" ];
+        var seller_name = randomName(names_list);
+        var buyer_name = randomName(names_list);
+        var random_nubmer = randomNumber();
 
         table = document.getElementById("table");
         table.insertRow(table.length);
         var newRow = table.insertRow(table.length);
 
-        for (var j=0; j < 4; j++){
+        var transact2 = [transaction_counter, seller_name, buyer_name, random_nubmer, "no notes on this transaction" ];
+
+        for (var j=0; j < 5; j++){
           var cell = newRow.insertCell(j);
           cell.innerHTML = transact2[j];
         }
+        transaction_counter++;
       }
 
     
