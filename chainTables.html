@@ -18,6 +18,7 @@
 
     <body>
         
+        <button onclick="myFunction()">Try it</button>
 
 		<table id="table" class="table">
 			<thead class="thead-dark">
@@ -29,6 +30,26 @@
 		    </tr>
 			</thead>
 	    </table>
+
+		<script type="text/javascript">
+			function myFunction(){
+
+				table = document.getElementById("table");
+				table.insertRow(table.length);
+				var newRow = table.insertRow(table.length);
+
+				for (var j=0; j < 4; j++){
+					var cell = newRow.insertCell(j);
+					cell.innerHTML = "element";
+				}
+
+
+
+
+		}
+
+
+		</script>
 
         
         <script>
