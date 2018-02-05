@@ -5,5 +5,7 @@ next steps
 - Borrar todo option
 - Juntar todo en la misma página
 - Posibilitar modificaciones para cambiar los datos
+- Comentar /ordenar codigo y carpetas
 - Publicar
+- footer
 - Documentar
