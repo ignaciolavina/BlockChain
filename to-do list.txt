@@ -1,0 +1,9 @@
+next steps
+
+- reconocer la librería
+- leer/ guardar en lista CSV
+- Borrar todo option
+- Juntar todo en la misma página
+- Posibilitar modificaciones para cambiar los datos
+- Publicar
+- Documentar
